@@ -1,0 +1,11 @@
+FROM php:8.3.0-fpm
+
+# Install xdebug
+# --> PECL is a repository for PHP Extensions and as PECL is not installed by default, we need to install it first
+# --> xdebug is a PHP extension which provides debugging and profiling capabilities
+# --> Activate el módulo xdebug, a través de la función docker-php-ext-enable
+RUN pecl install xdebug-3.3.0 \
+    && docker-php-ext-enable xdebug
+
+EXPOSE 9000
+
